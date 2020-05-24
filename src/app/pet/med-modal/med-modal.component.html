@@ -1,0 +1,66 @@
+<div class="modal-header">
+  <h4 class="modal-title pull-left" *ngIf="!medicalOperation">Створення медичного запису</h4>
+  <h4 class="modal-title pull-left" *ngIf="medicalOperation">Редагування медичного запису</h4>
+  <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <form [formGroup]="medOpForm">
+    <div class="form-group">
+      <label for="petName">Медичний запис</label>
+      <input type="text" class="form-control" id="petName" required formControlName="name">
+      <div class="danger" *ngIf="formSubmitted && medOpForm.controls.name.errors?.required">
+        Медичний запис обов'язковий
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="petDate">Дійсний до</label>
+      <input type="date" class="form-control" id="petDate" required formControlName="date">
+      <div class="danger" *ngIf="formSubmitted && medOpForm.controls.date.errors?.required">
+        Срок дійсності обов'язковий
+      </div>
+    </div>
+    <div class="form-group" *ngIf="existedFiles.length">
+      <p>Iснуючі документи</p>
+      <hr/>
+      <div class="single-file file-full d-flex" *ngFor="let file of existedFiles; let i = index">
+        <div class="d-flex">
+          <div class="d-flex align-items-center">
+            <img class="mb-2 ml-2 mr-2" width="30" height="30" src="assets/img/filePlaceholder.png">
+          </div>
+          <div>
+            <p class="name">{{ file?.fileName }}</p>
+            <p class="size">{{ dateService.toISODate(file?.creationDate) }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group" *ngIf="files.length">
+      <hr/>
+      <div class="single-file d-flex" *ngFor="let file of files; let i = index">
+        <div class="d-flex">
+          <div class="d-flex align-items-center">
+            <img class="mb-2 ml-2 mr-2" width="30" height="30" src="assets/img/filePlaceholder.png">
+          </div>
+          <div>
+            <p class="name">{{ file?.name }}</p>
+          </div>
+        </div>
+        <img class="mr-2" src="assets/img/delete.png" title="Видалити документ" (click)="deleteFile(i)">
+      </div>
+    </div>
+    <div class="form-group text-center">
+      <label for="fileUpload" class="mb-0 btn btn-secondary file-label">
+        Додати документ
+        <input id="fileUpload" type="file" [multiple]="true" class="btn" name="image" (change)="saveFile($event.target.files)" />
+      </label>
+    </div>
+  </form>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-primary" (click)="submitForm()">
+    Зберегти
+  </button>
+  <button type="button" class="btn btn-outline-secondary" (click)="modalRef.hide()">Відмінити</button>
+</div>

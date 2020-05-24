@@ -1,0 +1,16 @@
+<div class="d-flex flex-column align-items-center mt-3">
+  <div>
+    <button class="btn btn-primary mb-1" routerLink='/pet/form'>
+      Додати домашню тварину
+    </button>
+  </div>
+  <div class="pet-item d-flex" *ngFor="let pet of pets" (click)="onPetClick(pet)">
+    <div>
+      <img *ngIf="!pet.picture" src="assets/img/placeholder.png">
+      <img *ngIf="pet.picture" [src]="formatPicture(pet.picture)">
+    </div>
+    <div>
+      <h2 class="mt-2">{{ pet.name }}</h2>
+    </div>
+  </div>
+</div>

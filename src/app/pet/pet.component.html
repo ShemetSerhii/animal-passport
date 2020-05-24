@@ -1,0 +1,78 @@
+<div class="container">
+  <div class="d-flex justify-content-center mt-5">
+    <div class="col-5">
+      <div class="image-preview mb-3" *ngIf="!pet.picture">
+        <img src="assets/img/placeholder.png" height="240" />
+      </div>
+      <div class="image-preview mb-3" *ngIf="pet.picture">
+        <img [src]="formatPicture(pet.picture)" height="240" width="240" />
+      </div>
+    </div>
+    <div class="col-5 d-flex flex-column justify-content-around">
+      <div class="form-group">
+        <label class="label">Кличка домашньої тварини: {{ pet.name }}</label>
+      </div>
+      <div class="form-group">
+        <label class="label" for="petKing">Вид домашньої тварини: {{ pet.kind }}</label>
+      </div>
+      <div class="form-group">
+        <label class="label" for="petDate">Дата народження: {{ dateService.toISODate(pet.dateOfBirth) }}</label>
+      </div>
+      <div class="form-group">
+        <label class="label" for="petDate">Вік: {{ dateService.getDelta(pet.dateOfBirth) }}</label>
+      </div>
+      <div class="form-group d-flex justify-content-between">
+        <button type="button" class="btn btn-outline-secondary" (click)="showEdit()">Редагувати</button>
+        <button type="button" class="btn btn-outline-primary" (click)="createMedicalOpetaion()">
+          Додати медичний запис
+        </button>
+        <button type="button" class="btn btn-outline-danger">Видалити</button>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="medicalOperations.length">
+    <hr />
+    <div class="text-center">
+      <h4>Медична карта</h4>
+    </div>
+    <div>
+      <div class="operation-item" *ngFor="let operation of medicalOperations; let i=index"
+        (click)="operation.isCollapsed = !operation.isCollapsed">
+        <div class="d-flex justify-content-between" [attr.aria-expanded]="operation.isCollapsed" aria-controls="i">
+          <strong class="m-2">
+            {{ operation.name }}
+            <img class="edit-icon ml-1 mb-1" src="assets/img/editIcon.png" title="Редагувати медичний запис"
+              (click)="showEditMedical(operation); $event.stopPropagation()">
+          </strong>
+          <div class="mt-2">
+            <span class="m-2">
+              Cтворений: <strong>{{ dateService.toISODate(operation.date) }}</strong>
+            </span>
+            <span *ngIf="operation.dateExpiry" class="m-2">
+              Дійсний до: <strong>{{ dateService.toISODate(operation.dateExpiry) }}</strong>
+            </span>
+          </div>
+        </div>
+        <div [id]="i" [collapse]="!operation.isCollapsed" [isAnimated]="true">
+          <hr />
+          <div class="attachment-container">
+            <div class="single-file d-flex" *ngFor="let attachment of operation.attachments"
+              (click)="downloadAttachment(attachment); $event.stopPropagation()">
+              <div class="d-flex">
+                <div class="d-flex align-items-center">
+                  <img class="mb-2 ml-2 mr-2" width="30" height="30" src="assets/img/filePlaceholder.png">
+                </div>
+                <div>
+                  <p class="name">{{ attachment?.fileName }}</p>
+                  <p class="size">{{ dateService.toISODate(attachment?.creationDate) }}</p>
+                </div>
+              </div>
+              <img class="mr-2" src="assets/img/delete.png" title="Видалити документ"
+                (click)="deleteAttachment(operation.id, attachment)">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

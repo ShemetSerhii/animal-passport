@@ -1,0 +1,25 @@
+.label {
+  font-size: large;
+}
+
+.operation-item {
+  margin: 10px;
+  border: 2px solid gray;
+}
+
+.attachment-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.operation-item:hover .edit-icon {
+  display: inline-block;
+  cursor: pointer;
+  z-index: 20;
+}
+
+.edit-icon {
+  display: none;
+}

@@ -1,0 +1,17 @@
+.single-file {
+  margin: 0;
+  width: 100%;
+  max-width: 100%;
+}
+
+.file-full {
+  padding: 0.2rem;
+}
+
+.single-file + .single-file {
+  margin-top: 1rem;
+}
+
+.file-label {
+  margin-left: 0px !important;
+}

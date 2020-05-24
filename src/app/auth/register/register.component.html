@@ -1,0 +1,18 @@
+<div class="d-flex flex-column align-items-center justify-content-center mt-5">
+  <div class="login">
+    <h3>Регістрація</h3>
+      <div>
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+          <label for="login">Логін:</label>
+          <input id="login" type="text" class="form-control" placeholder="Логін" required formControlName="name">
+          <label for="email">Електронна пошта:</label>
+          <input id="email" type="text" class="form-control" placeholder="Електронна пошта" required email formControlName="email">
+          <label for="password">Пароль:</label>
+          <input id="password" type="password" class="form-control" placeholder="Пароль" required formControlName="password">
+          <div class="button">
+            <button type="button" class="btn btn-primary" type="submit" [disabled]="!registerForm.valid">Зареєструватися</button>
+          </div>
+        </form>
+      </div>
+  </div>
+</div>

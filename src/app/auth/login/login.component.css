@@ -1,0 +1,38 @@
+.login {
+  text-align: center;
+  border: 2px solid black;
+  border-radius: 5%;
+  padding: 30px;
+  width: 20%;
+}
+
+.register {
+  border: 2px solid black;
+  border-radius: 5%;
+  padding: 10px;
+  width: 20%;
+  text-align: center;
+}
+
+form {
+  text-align: left;
+}
+
+.button {
+  text-align: center;
+  padding-top: 2%;
+}
+
+.button button {
+  width: 100%;
+  font-size: 20px;
+}
+
+input {
+  margin-bottom: 20px;
+}
+
+h1 {
+  padding: 3% 12%;
+  height: 50%;
+}

@@ -1,1 +1,61 @@
-/* You can add global styles to this file, and also import other style files */
+input[type="file"], input[type="file"]::-webkit-file-upload-button {
+  cursor: pointer;
+  opacity: 0;
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+}
+
+.file-label {
+  height: 37px;
+  line-height: 1;
+  padding: 8.5px 16px;
+  border-radius: 0.25rem;
+  white-space: nowrap;
+  margin-left: 35px;
+}
+
+.single-file:hover {
+  background-color: #F5F5F5;
+  cursor: pointer;
+}
+
+.single-file {
+  display: flex;
+  padding: 0.2rem;
+  justify-content: space-between;
+  align-items: center;
+  border: dashed 1px #979797;
+  margin: 0 1rem 1rem 1rem;
+  z-index: 2; 
+  flex-grow: 1;
+  height: 50px;
+  box-sizing: border-box;
+  width: 46.2%;
+  max-width: 46.2%;
+}
+
+.name {
+  word-break: break-all;
+  font-weight: 500;
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.size {
+  font-size: small;
+  font-weight: 500;
+  color: gray;
+  margin: 0;
+}
+
+i.delete-icon {
+  font-size: 1.1rem;
+  margin-top: 0.7rem;
+}
+
+.danger {
+  color: red;
+}

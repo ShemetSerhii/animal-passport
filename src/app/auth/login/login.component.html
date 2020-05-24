@@ -1,0 +1,20 @@
+<div class="d-flex flex-column align-items-center justify-content-center mt-5">
+  <div class="login">
+    <h3>Увійти</h3>
+    <div>
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <label for="login">Логін:</label>
+        <input type="text" class="form-control" placeholder="логін" required formControlName="login">
+        <label for="password">Пароль:</label>
+        <input type="password" class="form-control" placeholder="пароль" required formControlName="password">
+        <div class="button">
+          <button type="button" class="btn btn-primary" type="submit" [disabled]="!loginForm.valid">Увійти</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="register mt-3">
+    Відсутній аккаунт? 
+    <button type="button" class="btn btn-primary ml-2" routerLink="/user/register">Зареєструватися</button>
+  </div>
+</div>
