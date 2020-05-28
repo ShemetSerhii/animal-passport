@@ -9,6 +9,9 @@
           <input id="email" type="text" class="form-control" placeholder="Електронна пошта" required email formControlName="email">
           <label for="password">Пароль:</label>
           <input id="password" type="password" class="form-control" placeholder="Пароль" required formControlName="password">
+          <select class="form-control mb-3" formControlName="role">
+            <option *ngFor="let role of roles" [ngValue]="role.id">{{ role.name }}</option>
+          </select>
           <div class="button">
             <button type="button" class="btn btn-primary" type="submit" [disabled]="!registerForm.valid">Зареєструватися</button>
           </div>

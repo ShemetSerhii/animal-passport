@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { Pet } from '../models/pet';
-import { PetsService } from '../services/pets.service';
+import { PetsService, AuthService } from '../services';
 
 @Component({
   selector: 'app-pets',
@@ -12,9 +12,15 @@ import { PetsService } from '../services/pets.service';
 export class PetsComponent implements OnInit {
   pets: Pet[];
 
-  constructor(private petService: PetsService, private router: Router) { }
+  constructor(
+    private petService: PetsService, 
+    private router: Router,
+    private authService: AuthService) { }
 
   ngOnInit(): void {
+    if (this.authService.IsController) {
+      this.router.navigate(['/pet/control']);
+    }
     this.petService.fetchPets().subscribe((data: Pet[]) => this.pets = data);
   }
 

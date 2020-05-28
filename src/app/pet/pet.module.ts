@@ -9,12 +9,14 @@ import { PetComponent } from './pet.component';
 import { PetRoutingModule } from './pet-routing.module';
 import { PetFormComponent } from './pet-form/pet-form.component';
 import { MedModalComponent } from './med-modal/med-modal.component';
+import { ControlComponent } from './control/control.component';
 
 @NgModule({
   declarations: [
     PetComponent,
     PetFormComponent,
-    MedModalComponent
+    MedModalComponent,
+    ControlComponent
   ],
   imports: [
     CommonModule,

@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 import { BsModalService } from 'ngx-bootstrap/modal';
 
-import { PetsService, DateService, AttachmentService } from '../services';
+import { PetsService, DateService, AttachmentService, AuthService } from '../services';
 import { Attachment, PetInfo, MedicalOperation } from '../models';
 import { MedModalComponent } from './med-modal/med-modal.component';
 
@@ -23,7 +23,8 @@ export class PetComponent implements OnInit {
     private petsService: PetsService,
     private attachmentService: AttachmentService,
     private modalService: BsModalService,
-    public dateService: DateService) { }
+    public dateService: DateService,
+    public authService: AuthService) { }
 
   ngOnInit(): void {
     this.petId = this.route.snapshot.params.id;

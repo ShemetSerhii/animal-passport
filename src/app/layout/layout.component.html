@@ -4,13 +4,21 @@
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav">
-      <li class="nav-item">
+    <ul class="navbar-nav flex-row-reverse justify-content-between w-100 ">
+      <li class="nav-item" *ngIf="authService.isLoggedIn && authService.IsPetOwner">
         <a class="nav-link" routerLink="/pets">Домашні тварини</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="!authService.isLoggedIn">
         <a class="nav-link" routerLink="/user/login">Вхід</a>
       </li>
+      <div class="d-flex">
+        <li class="nav-item" *ngIf="authService.isLoggedIn">
+          <a class="nav-link" [title]="authService.userRole" >Привіт, {{ authService.userName }}</a>
+        </li>
+        <li class="nav-item" *ngIf="authService.isLoggedIn">
+          <a class="nav-link" routerLink="" (click)="authService.logout()">Вихід</a>
+        </li>
+      </div>
     </ul>
   </div>
 </nav>

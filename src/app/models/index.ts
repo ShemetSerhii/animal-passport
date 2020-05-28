@@ -6,3 +6,4 @@ export { PetForm } from './pet-form';
 export { PetInfo } from './pet-info';
 export { User } from './user';
 export { UserRegister } from './user-register';
+export { Role } from './role';

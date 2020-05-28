@@ -7,6 +7,9 @@
         <input type="text" class="form-control" placeholder="логін" required formControlName="login">
         <label for="password">Пароль:</label>
         <input type="password" class="form-control" placeholder="пароль" required formControlName="password">
+        <div class="danger" *ngIf="error">
+          Невірно введений логін або пароль
+        </div>
         <div class="button">
           <button type="button" class="btn btn-primary" type="submit" [disabled]="!loginForm.valid">Увійти</button>
         </div>
