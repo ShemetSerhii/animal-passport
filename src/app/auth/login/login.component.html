@@ -3,12 +3,12 @@
     <h3>Увійти</h3>
     <div>
       <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-        <label for="login">Логін:</label>
-        <input type="text" class="form-control" placeholder="логін" required formControlName="login">
+        <label for="login">Електронна пошта:</label>
+        <input type="text" class="form-control" placeholder="Введіть електронну пошту" required formControlName="login">
         <label for="password">Пароль:</label>
-        <input type="password" class="form-control" placeholder="пароль" required formControlName="password">
+        <input type="password" class="form-control" placeholder="Введіть пароль" required formControlName="password">
         <div class="danger" *ngIf="error">
-          Невірно введений логін або пароль
+          Невірно введений електронна пошта або пароль
         </div>
         <div class="button">
           <button type="button" class="btn btn-primary" type="submit" [disabled]="!loginForm.valid">Увійти</button>

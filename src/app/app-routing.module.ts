@@ -9,6 +9,11 @@ const routes: Routes = [
     component: LayoutComponent,
     children: [
       {
+        path: '',
+        pathMatch: 'full',
+        redirectTo: 'user/login'
+      },
+      {
         path: 'pets',
         loadChildren: () => import('./pets/pets.module').then(m => m.PetsModule)
       },
@@ -19,6 +24,10 @@ const routes: Routes = [
       {
         path: 'user',
         loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
+      },
+      {
+        path: 'users',
+        loadChildren: () => import('./users/users.module').then(m => m.UsersModule)
       }
     ]
   }

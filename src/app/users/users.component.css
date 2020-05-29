@@ -1,0 +1,16 @@
+img {
+  height: 100px;
+  width: 100px;
+  margin: 10px;
+}
+
+.pet-item {
+  margin: 10px;
+  border: 2px solid gray;
+  width: 60%;
+}
+
+.pet-item:hover, .pet-item:focus {
+  background-color: #F5F5F5;
+  cursor: pointer;
+}

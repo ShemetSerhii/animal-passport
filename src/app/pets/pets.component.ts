@@ -15,7 +15,7 @@ export class PetsComponent implements OnInit {
   constructor(
     private petService: PetsService, 
     private router: Router,
-    private authService: AuthService) { }
+    public authService: AuthService) { }
 
   ngOnInit(): void {
     if (this.authService.IsController) {

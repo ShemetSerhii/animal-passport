@@ -42,22 +42,59 @@ export class AuthService {
   login(login: string, password: string): void {
     this.http.post(`${ApiUrl}/User/Login`, { Email: login, Password: password })
       .subscribe((data: User) => {
-        console.log(data);
         localStorage.setItem('userId', data.id.toString());
         localStorage.setItem('role', data.role);
-        localStorage.setItem('userName', data.username);
+        localStorage.setItem('userName', data.userName);
         localStorage.setItem('token', data.token);
 
-        this.router.navigate(['/pets']).then(() => {
-          window.location.reload();
-        });
+        if (data.role === 'Власник домашньої тварини') {
+          localStorage.setItem('ownerId', data.id);
+        }
+
+        if (this.IsPetOwner) {
+          this.router.navigate(['/pets']).then(() => {
+            window.location.reload();
+          });
+        } else if (this.IsController) {
+          this.router.navigate(['./pet/control']).then(() => {
+            window.location.reload();
+          });
+        } else {
+          this.router.navigate(['./users']).then(() => {
+            window.location.reload();
+          });
+        }
       },
         (error: HttpErrorResponse) => this.loginError.emit(error.message));
   }
 
   register(user: UserRegister): void {
     this.http.post(`${ApiUrl}/User/Register`, user)
-      .subscribe(() => this.router.navigate(['/pets']));
+      .subscribe((data: User) => {
+        localStorage.setItem('userId', data.id.toString());
+        localStorage.setItem('role', data.role);
+        localStorage.setItem('userName', data.userName);
+        localStorage.setItem('token', data.token);
+
+        if (data.role === 'Власник домашньої тварини') {
+          localStorage.setItem('ownerId', data.id);
+        }
+
+        if (this.IsPetOwner) {
+          this.router.navigate(['/pets']).then(() => {
+            window.location.reload();
+          });
+        } else if (this.IsController) {
+          this.router.navigate(['./pet/control']).then(() => {
+            window.location.reload();
+          });
+        } else {
+          this.router.navigate(['./users']).then(() => {
+            window.location.reload();
+          });
+        }
+      },
+        (error: HttpErrorResponse) => this.loginError.emit(error.message));
   }
 
   fetchRoles(): Observable<Role[]> {

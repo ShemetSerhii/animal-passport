@@ -5,9 +5,6 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav flex-row-reverse justify-content-between w-100 ">
-      <li class="nav-item" *ngIf="authService.isLoggedIn && authService.IsPetOwner">
-        <a class="nav-link" routerLink="/pets">Домашні тварини</a>
-      </li>
       <li class="nav-item" *ngIf="!authService.isLoggedIn">
         <a class="nav-link" routerLink="/user/login">Вхід</a>
       </li>
@@ -19,6 +16,12 @@
           <a class="nav-link" routerLink="" (click)="authService.logout()">Вихід</a>
         </li>
       </div>
+      <li class="nav-item" *ngIf="authService.isLoggedIn && authService.IsPetOwner">
+        <a class="nav-link" routerLink="/pets">Домашні тварини</a>
+      </li>
+      <li class="nav-item" *ngIf="authService.isLoggedIn && authService.IsVeterinarian">
+        <a class="nav-link" routerLink="/users">Власники домашніх тварин</a>
+      </li>  
     </ul>
   </div>
 </nav>

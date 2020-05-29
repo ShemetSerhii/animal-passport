@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 import { ApiUrl } from './apiUrl';
-import { MedicalForm, Pet, PetForm, PetInfo, MedicalOperation } from '../models';
+import { MedicalForm, Pet, PetForm, PetInfo, MedicalOperation, UserInfo } from '../models';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +14,7 @@ export class PetsService {
   constructor(private http: HttpClient) { }
 
   fetchPets(): Observable<Pet[]> {
-    const userId = localStorage.getItem('userId');
+    const userId = localStorage.getItem('ownerId');
 
     return this.http.get<Pet[]>(`${ApiUrl}/Animal/${userId}/animals`);
   }
@@ -28,7 +28,7 @@ export class PetsService {
   }
 
   savePet(pet: PetForm): Observable<string> {
-    const userId = localStorage.getItem('userId');
+    const userId = localStorage.getItem('ownerId');
 
     return this.http.post<string>(`${ApiUrl}/Animal/${userId}`, pet);
   }
@@ -50,5 +50,9 @@ export class PetsService {
 
   updateMedicalOperation(medicalId: string, medForm: MedicalForm): Observable<void> {
     return this.http.put<void>(`${ApiUrl}/Medical/${medicalId}`, medForm);
+  }
+
+  fetchPetOwners(): Observable<UserInfo[]> {
+    return this.http.get<UserInfo[]>(`${ApiUrl}/User/Users`);
   }
 }

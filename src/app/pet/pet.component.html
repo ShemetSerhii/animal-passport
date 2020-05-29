@@ -21,12 +21,12 @@
       <div class="form-group">
         <label class="label" for="petDate">Вік: {{ dateService.getDelta(pet.dateOfBirth) }}</label>
       </div>
-      <div class="form-group d-flex justify-content-between">
+      <div class="form-group d-flex">
         <button type="button" class="btn btn-outline-secondary" *ngIf="authService.IsPetOwner" (click)="showEdit()">Редагувати</button>
-        <button type="button" class="btn btn-outline-primary"  *ngIf="authService.IsVeterinarian" (click)="createMedicalOpetaion()">
+        <button type="button" class="btn btn-outline-primary ml-3"  *ngIf="authService.IsVeterinarian" (click)="createMedicalOpetaion()">
           Додати медичний запис
         </button>
-        <button type="button" *ngIf="authService.IsPetOwner" class="btn btn-outline-danger">Видалити</button>
+        <button type="button" *ngIf="authService.IsPetOwner" class="btn btn-outline-danger ml-3">Видалити</button>
       </div>
     </div>
   </div>

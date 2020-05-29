@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 
 import { AuthService } from 'src/app/services/auth.service';
 
@@ -15,10 +16,20 @@ export class LoginComponent implements OnInit, OnDestroy  {
   });
   error: string;
 
-  constructor(public authService: AuthService) { }
+  constructor(public authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
-    this.authService.loginError.subscribe((error: string) => this.error = error);
+    if (this.authService.isLoggedIn) {
+      if (this.authService.IsPetOwner) {
+        this.router.navigate(['/pets']);
+      } else if (this.authService.IsController) {
+        this.router.navigate(['./pet/control']);
+      } else {
+        this.router.navigate(['./users']);
+      }
+    } else {
+      this.authService.loginError.subscribe((error: string) => this.error = error);
+    }  
   }
 
   ngOnDestroy(): void {
