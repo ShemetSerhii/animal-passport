@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 
+import { TranslateService } from '@ngx-translate/core';
+
 import { PetForm, PetInfo } from 'src/app/models';
 import { PetsService, DateService } from 'src/app/services';
 
@@ -27,6 +29,7 @@ export class PetFormComponent implements OnInit {
   });
 
   constructor(
+    public translate: TranslateService,
     private petsService: PetsService,
     private dateService: DateService,
     private router: Router,

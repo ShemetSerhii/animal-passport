@@ -2,6 +2,8 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 
+import { TranslateService } from '@ngx-translate/core';
+
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -16,7 +18,10 @@ export class LoginComponent implements OnInit, OnDestroy  {
   });
   error: string;
 
-  constructor(public authService: AuthService, private router: Router) { }
+  constructor(
+    public translate: TranslateService,
+    public authService: AuthService,
+    private router: Router) { }
 
   ngOnInit(): void {
     if (this.authService.isLoggedIn) {
@@ -29,7 +34,7 @@ export class LoginComponent implements OnInit, OnDestroy  {
       }
     } else {
       this.authService.loginError.subscribe((error: string) => this.error = error);
-    }  
+    }
   }
 
   ngOnDestroy(): void {

@@ -8,37 +8,37 @@
     </div>
     <div class="form-group">
       <label for="fileUpload" class="mb-0 btn btn-secondary file-label">
-        Завантажити фото
+        <ng-container>{{ 'Завантажити фото' | translate }}</ng-container>
         <input id="fileUpload" type="file" class="btn" name="image" (change)="fileProgress($event)" />
       </label>
       <button class="btn btn-outline-danger ml-2" *ngIf="picture" (click)="deletePicture()"
-        title="Видалити фото">X</button>
+        title="{{ 'Видалити фото' | translate }}">X</button>
     </div>
   </div>
   <div class="col-4">
     <form [formGroup]="petForm" (ngSubmit)="onSubmit()">
       <div class="form-group">
-        <label for="petName">Кличка домашньої тварини</label>
+        <label for="petName">{{ 'Кличка домашньої тварини' | translate }}</label>
         <input type="text" class="form-control" id="petName" required formControlName="name">
         <div class="danger" *ngIf="formSubmitted && petForm.controls.name.errors?.required">
-          Кличка домашньої тварини обов'язкова
+          {{ 'Кличка домашньої тварини обовязкова' | translate }}
         </div>
       </div>
       <div class="form-group">
-        <label for="petKing">Вид домашньої тварини</label>
+        <label for="petKing">{{ 'Вид домашньої тварини' | translate }}</label>
         <input type="text" class="form-control" id="petKing" required formControlName="kind">
         <div class="danger" *ngIf="formSubmitted && petForm.controls.kind.errors?.required">
-          Вид домашньої тварини обов'язковий
+          {{ 'Вид домашньої тварини обовязковий' | translate }}
         </div>
       </div>
       <div class="form-group">
-        <label for="petDate">Дата народження</label>
+        <label for="petDate">{{ 'Дата народження' | translate }}</label>
         <input type="date" class="form-control" id="petDate" required formControlName="dateOfBirth">
         <div class="danger" *ngIf="formSubmitted && petForm.controls.dateOfBirth.errors?.required">
-          Дата народження обов'язкова
+          {{ 'Дата народження обовязкова' | translate }}
         </div>
       </div>
-      <button type="submit" class="btn btn-primary">Зберегти</button>
+      <button type="submit" class="btn btn-primary">{{ 'Зберегти' | translate }}</button>
     </form>
   </div>
 </div>

@@ -5,22 +5,44 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav flex-row-reverse justify-content-between w-100 ">
-      <li class="nav-item" *ngIf="!authService.isLoggedIn">
-        <a class="nav-link" routerLink="/user/login">Вхід</a>
-      </li>
+      <div class="d-flex" *ngIf="!authService.isLoggedIn">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+           role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" [title]="lang">
+            {{ 'Обрати мову' | translate }}
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" (click)="onClick('ua')">UA</a>
+            <a class="dropdown-item" (click)="onClick('en')">EN</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/user/login"> {{ 'Bхід' | translate }}</a>
+        </li>
+      </div>
       <div class="d-flex">
-        <li class="nav-item" *ngIf="authService.isLoggedIn">
-          <a class="nav-link" [title]="authService.userRole" >Привіт, {{ authService.userName }}</a>
+        <li class="nav-item dropdown" *ngIf="authService.isLoggedIn">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+           role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" [title]="lang">
+            {{ 'Обрати мову' | translate }}
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" (click)="onClick('ua')">UA</a>
+            <a class="dropdown-item" (click)="onClick('en')">EN</a>
+          </div>
         </li>
         <li class="nav-item" *ngIf="authService.isLoggedIn">
-          <a class="nav-link" routerLink="" (click)="authService.logout()">Вихід</a>
+          <a class="nav-link" [title]="authService.userRole" >{{ 'Привіт' | translate }}, {{ authService.userName }}</a>
+        </li>
+        <li class="nav-item" *ngIf="authService.isLoggedIn">
+          <a class="nav-link" routerLink="" (click)="authService.logout()"> {{ 'Вихід' | translate }}</a>
         </li>
       </div>
       <li class="nav-item" *ngIf="authService.isLoggedIn && authService.IsPetOwner">
-        <a class="nav-link" routerLink="/pets">Домашні тварини</a>
+        <a class="nav-link" routerLink="/pets" >{{ 'Домашні тварини' | translate }}</a>
       </li>
       <li class="nav-item" *ngIf="authService.isLoggedIn && authService.IsVeterinarian">
-        <a class="nav-link" routerLink="/users">Власники домашніх тварин</a>
+        <a class="nav-link" routerLink="/users">{{ 'Власники домашніх тварин' | translate }}</a>
       </li>  
     </ul>
   </div>

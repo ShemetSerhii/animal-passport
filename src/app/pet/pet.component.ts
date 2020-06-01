@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { BsModalService } from 'ngx-bootstrap/modal';
+import { TranslateService } from '@ngx-translate/core';
 
 import { PetsService, DateService, AttachmentService, AuthService } from '../services';
 import { Attachment, PetInfo, MedicalOperation } from '../models';
@@ -17,6 +18,8 @@ export class PetComponent implements OnInit {
   pet: PetInfo;
   medicalOperations: MedicalOperation[] = [];
 
+  now = Date.now();
+
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -24,7 +27,8 @@ export class PetComponent implements OnInit {
     private attachmentService: AttachmentService,
     private modalService: BsModalService,
     public dateService: DateService,
-    public authService: AuthService) { }
+    public authService: AuthService,
+    public translate: TranslateService) { }
 
   ngOnInit(): void {
     this.petId = this.route.snapshot.params.id;
@@ -37,9 +41,22 @@ export class PetComponent implements OnInit {
     }
   }
 
+  checkExpired(medRow: MedicalOperation): boolean {
+    return medRow.dateExpiry && new Date(medRow.dateExpiry).getTime() <= this.now;
+  }
+
   fetchMedRows(): void {
     this.petsService.fetchPetMedRows(this.petId)
       .subscribe((rows: MedicalOperation[]) => this.medicalOperations = rows);
+  }
+
+  deletePet(): void {
+    this.petsService.deletePet(this.petId)
+      .subscribe(() => this.router.navigate(['./pets']));
+  }
+
+  deleteMedRow(id: string): void {
+    this.petsService.deleteMedicalOperation(id).subscribe(() => this.fetchMedRows());
   }
 
   formatPicture(byteArray: Uint8Array): string {

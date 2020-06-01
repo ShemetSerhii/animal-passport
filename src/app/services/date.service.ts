@@ -6,6 +6,8 @@ import { Injectable } from '@angular/core';
 export class DateService {
   private regExp = new RegExp(/^\+?0*/);
 
+  private month = 30*24*60*60*100;
+
   public toISODate(inputDate: Date): string {
     if (inputDate === undefined || inputDate === null) {
       return null;
@@ -21,6 +23,8 @@ export class DateService {
     const delta = new Date(Date.now()).getTime() - new Date(inputDate).getTime();
     const date = new Date(delta);
 
-    return date.getFullYear() > 1 ? `${date.getMonth()} Місяців` : `${date.getFullYear()} Років та ${date.getMonth()} Місяців`;
+    console.log(delta / this.month);
+
+    return date.getFullYear() < 1 ? `${date.getMonth()} Місяців` : `${date.getFullYear()} Років та ${date.getMonth()} Місяців`;
   }
 }

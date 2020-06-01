@@ -1,6 +1,6 @@
 import { Injectable, Output, EventEmitter } from '@angular/core';
 
-import * as signalR from "@aspnet/signalr";
+import * as signalR from '@aspnet/signalr';
 
 @Injectable({
   providedIn: 'root'
@@ -8,20 +8,24 @@ import * as signalR from "@aspnet/signalr";
 export class SignalRService {
   @Output() resiveId = new EventEmitter<string>();
 
-  private hubConnection: signalR.HubConnection
- 
+  private hubConnection: signalR.HubConnection;
+
   public startConnection(): void {
     this.hubConnection = new signalR.HubConnectionBuilder()
-                            .withUrl('http://localhost:54063/remote-access')
-                            .build();
- 
+      .withUrl('http://localhost:54063/remote-access')
+      .build();
+
     this.hubConnection
       .start()
       .then(() => console.log('Connection started'))
       .catch(err => console.log('Error while starting connection: ' + err));
-      
-      this.hubConnection.on('process', (data) => {
-        this.resiveId.emit(data);
-      });
+
+    this.hubConnection.on('process', (data) => {
+      this.resiveId.emit(data);
+    });
+  }
+
+  public login(): void {
+    this.hubConnection.invoke('Login');
   }
 }

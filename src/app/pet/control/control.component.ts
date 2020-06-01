@@ -1,23 +1,24 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit} from '@angular/core';
 
-import { SignalRService } from 'src/app/services';
+import { TranslateService } from '@ngx-translate/core';
+
+import { SignalRService, AuthService } from 'src/app/services';
 
 @Component({
   selector: 'app-control',
   templateUrl: './control.component.html',
   styleUrls: ['./control.component.css']
 })
-export class ControlComponent implements OnInit, OnDestroy {
+export class ControlComponent implements OnInit {
 
-  constructor(private signalRService: SignalRService, private router: Router) { }
-  
+  constructor(
+    private signalR: SignalRService,
+    private authService: AuthService,
+    public translate: TranslateService) { }
+
   ngOnInit(): void {
-    this.signalRService.startConnection();
-    this.signalRService.resiveId.subscribe((id) => this.router.navigate([`/pet/${id}`]));
-  }
-
-  ngOnDestroy(): void {
-    this.signalRService.resiveId.unsubscribe();
+    if (this.authService.IsController) {
+      this.signalR.login();
+    }
   }
 }

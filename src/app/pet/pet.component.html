@@ -10,46 +10,50 @@
     </div>
     <div class="col-5 d-flex flex-column justify-content-around">
       <div class="form-group">
-        <label class="label">Кличка домашньої тварини: {{ pet.name }}</label>
+        <label class="label">{{ 'Кличка домашньої тварини' | translate }}: {{ pet.name }}</label>
       </div>
       <div class="form-group">
-        <label class="label" for="petKing">Вид домашньої тварини: {{ pet.kind }}</label>
+        <label class="label" for="petKing">{{ 'Вид домашньої тварини' | translate }}: {{ pet.kind }}</label>
       </div>
       <div class="form-group">
-        <label class="label" for="petDate">Дата народження: {{ dateService.toISODate(pet.dateOfBirth) }}</label>
-      </div>
-      <div class="form-group">
-        <label class="label" for="petDate">Вік: {{ dateService.getDelta(pet.dateOfBirth) }}</label>
+        <label class="label" for="petDate">{{ 'Дата народження' | translate }}: {{ dateService.toISODate(pet.dateOfBirth) }}</label>
       </div>
       <div class="form-group d-flex">
-        <button type="button" class="btn btn-outline-secondary" *ngIf="authService.IsPetOwner" (click)="showEdit()">Редагувати</button>
-        <button type="button" class="btn btn-outline-primary ml-3"  *ngIf="authService.IsVeterinarian" (click)="createMedicalOpetaion()">
-          Додати медичний запис
+        <button type="button" class="btn btn-outline-secondary" *ngIf="authService.IsPetOwner" (click)="showEdit()">
+          {{ 'Редагувати' | translate }}
         </button>
-        <button type="button" *ngIf="authService.IsPetOwner" class="btn btn-outline-danger ml-3">Видалити</button>
+        <button type="button" class="btn btn-outline-primary ml-3"  *ngIf="authService.IsVeterinarian" (click)="createMedicalOpetaion()">
+          {{ 'Додати медичний запис' | translate }}
+        </button>
+        <button type="button" *ngIf="authService.IsPetOwner" class="btn btn-outline-danger ml-3" (click)="deletePet()">
+          {{ 'Видалити' | translate }}
+        </button>
       </div>
     </div>
   </div>
   <div *ngIf="medicalOperations.length">
     <hr />
     <div class="text-center">
-      <h4>Медична карта</h4>
+      <h4>{{ 'Медична карта' | translate }}</h4>
     </div>
     <div>
       <div class="operation-item" *ngFor="let operation of medicalOperations; let i=index"
         (click)="operation.isCollapsed = !operation.isCollapsed">
-        <div class="d-flex justify-content-between" [attr.aria-expanded]="operation.isCollapsed" aria-controls="i">
+        <div class="d-flex justify-content-between" [attr.aria-expanded]="operation.isCollapsed" [ngClass]="checkExpired(operation) ? 'danger' : ''" 
+        aria-controls="i">
           <strong class="m-2">
             {{ operation.name }}
-            <img class="edit-icon ml-1 mb-1" src="assets/img/editIcon.png" title="Редагувати медичний запис"
+            <img class="edit-icon ml-1 mb-1" *ngIf="authService.IsVeterinarian" src="assets/img/editIcon.png" title="{{'Редагувати медичний запис' | translate}}"
               (click)="showEditMedical(operation); $event.stopPropagation()">
+            <img class="edit-icon ml-1" *ngIf="authService.IsVeterinarian" src="assets/img/delete.png" title="{{ 'Видалити медичний запис' | translate }}"
+                (click)="deleteMedRow(operation.id); $event.stopPropagation()">
           </strong>
           <div class="mt-2">
             <span class="m-2">
-              Cтворений: <strong>{{ dateService.toISODate(operation.date) }}</strong>
+              {{ 'Cтворений' | translate }}: <strong>{{ dateService.toISODate(operation.date) }}</strong>
             </span>
             <span *ngIf="operation.dateExpiry" class="m-2">
-              Дійсний до: <strong>{{ dateService.toISODate(operation.dateExpiry) }}</strong>
+              {{ 'Дійсний до' | translate }}: <strong>{{ dateService.toISODate(operation.dateExpiry) }}</strong>
             </span>
           </div>
         </div>
@@ -67,8 +71,8 @@
                   <p class="size">{{ dateService.toISODate(attachment?.creationDate) }}</p>
                 </div>
               </div>
-              <img class="mr-2" src="assets/img/delete.png" title="Видалити документ"
-                (click)="deleteAttachment(operation.id, attachment)">
+              <img class="mr-2" *ngIf="authService.IsVeterinarian" src="assets/img/delete.png" title="{{ 'Видалити документ' | translate }}"
+                (click)="deleteAttachment(operation.id, attachment); $event.stopPropagation()">
             </div>
           </div>
         </div>

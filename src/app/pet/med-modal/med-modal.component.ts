@@ -1,7 +1,10 @@
 import { Component, EventEmitter, Output, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 
+import { Observable, forkJoin } from 'rxjs';
+import { defaultIfEmpty } from 'rxjs/operators';
 import { BsModalRef } from 'ngx-bootstrap/modal';
+import { TranslateService } from '@ngx-translate/core';
 
 import { MedicalForm, MedicalOperation, Attachment } from 'src/app/models';
 import { PetsService, DateService, AttachmentService } from 'src/app/services';
@@ -30,6 +33,7 @@ export class MedModalComponent implements OnInit {
   constructor(
     public modalRef: BsModalRef,
     public dateService: DateService,
+    public translate: TranslateService,
     private petsService: PetsService,
     private attachmentService: AttachmentService) { }
 
@@ -62,22 +66,33 @@ export class MedModalComponent implements OnInit {
 
       if (this.medicalOperation) {
         this.petsService.updateMedicalOperation(this.medicalOperation.id, medForm).subscribe(
-          () => this.uploadFile(this.medicalOperation.id)
+          () => {
+            this.uploadFile(this.medicalOperation.id)
+              .subscribe(() => {
+                this.modalRef.hide();
+                this.isformSubmitted.emit();
+              });
+          }
         );
       } else {
         this.petsService.saveMedicalOperation(this.petId, medForm)
-          .subscribe((id: string) => this.uploadFile(id));
+          .subscribe((id: string) => {
+            this.uploadFile(id)
+              .subscribe(() => {
+                this.modalRef.hide();
+                this.isformSubmitted.emit();
+              });
+          });
       }
-
-      this.modalRef.hide();
-      this.isformSubmitted.emit();
     }
   }
 
-  uploadFile(medicalId: string): void {
+  uploadFile(medicalId: string): Observable<void> {
+    const tasks = [];
     this.files.forEach(file => {
-      this.attachmentService.uploadAttachment(medicalId, file)
-        .subscribe(() => console.log(`file: ${file.name} uploaded`));
+      tasks.push(this.attachmentService.uploadAttachment(medicalId, file));
     });
+
+    return forkJoin(tasks).pipe(defaultIfEmpty(null));
   }
 }

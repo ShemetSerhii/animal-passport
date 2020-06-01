@@ -10,6 +10,7 @@ import { PetRoutingModule } from './pet-routing.module';
 import { PetFormComponent } from './pet-form/pet-form.component';
 import { MedModalComponent } from './med-modal/med-modal.component';
 import { ControlComponent } from './control/control.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ControlComponent } from './control/control.component';
     FormsModule,
     ReactiveFormsModule,
     CollapseModule.forRoot(),
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    TranslateModule
   ],
   entryComponents: [
     MedModalComponent

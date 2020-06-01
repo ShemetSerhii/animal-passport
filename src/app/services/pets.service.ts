@@ -37,6 +37,10 @@ export class PetsService {
     return this.http.put<void>(`${ApiUrl}/Animal/${petId}`, pet);
   }
 
+  deletePet(petId: string): Observable<void> {
+    return this.http.delete<void>(`${ApiUrl}/Animal/${petId}`);
+  }
+
   savePetPicture(petId: string, picture: File): Observable<void> {
     const formData = new FormData();
     formData.append('picture', picture);
@@ -50,6 +54,10 @@ export class PetsService {
 
   updateMedicalOperation(medicalId: string, medForm: MedicalForm): Observable<void> {
     return this.http.put<void>(`${ApiUrl}/Medical/${medicalId}`, medForm);
+  }
+
+  deleteMedicalOperation(medicalId: string): Observable<void> {
+    return this.http.delete<void>(`${ApiUrl}/Medical/${medicalId}`);
   }
 
   fetchPetOwners(): Observable<UserInfo[]> {

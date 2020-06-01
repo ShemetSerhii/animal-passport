@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en-US" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="Обратимову" datatype="html">
+        <source>Обрати мову</source>
+        <target>Обрати мову</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/layout.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/layout.component.html</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="вхід" datatype="html">
+        <source>Вхід</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/layout.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="Привіт" datatype="html">
+        <source>Привіт</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/layout.component.html</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="Вихід" datatype="html">
+        <source>Вихід</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/layout.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="Домашнітварини" datatype="html">
+        <source>Домашні тварини</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/layout.component.html</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="Власникидомашніхтварин" datatype="html">
+        <source>Власники домашніх тварин</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/layout.component.html</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="Додатидомашнютварину" datatype="html">
+        <source>
+      Додати домашню тварину
+    </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pets/pets.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="Створеннямедичногозапису" datatype="html">
+        <source>Створення медичного запису</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pet/med-modal/med-modal.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="Редагуваннямедичногозапису" datatype="html">
+        <source>Редагування медичного запису</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pet/med-modal/med-modal.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="Медичнийзапис" datatype="html">
+        <source>Медичний запис</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pet/med-modal/med-modal.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="Медичнийзаписобовязковий" datatype="html">
+        <source>
+        Медичний запис обов&apos;язковий
+      </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pet/med-modal/med-modal.component.html</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="Дійснийдо" datatype="html">
+        <source>Дійсний до</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pet/med-modal/med-modal.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pet/pet.component.html</context>
+          <context context-type="linenumber">52</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="Срокдійсностіобовязковий" datatype="html">
+        <source>
+        Срок дійсності обов&apos;язковий
+      </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pet/med-modal/med-modal.component.html</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="Iснуючідокументи" datatype="html">
+        <source>Iснуючі документи</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pet/med-modal/med-modal.component.html</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="Додатидокумент" datatype="html">
+        <source>Додати документ</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pet/med-modal/med-modal.component.html</context>
+          <context context-type="linenumber">55</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="Зберегти" datatype="html">
+        <source>
+    Зберегти
+  </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pet/med-modal/med-modal.component.html</context>
+          <context context-type="linenumber">62</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pet/pet-form/pet-form.component.html</context>
+          <context context-type="linenumber">41</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="Відмінити" datatype="html">
+        <source>Відмінити</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pet/med-modal/med-modal.component.html</context>
+          <context context-type="linenumber">65</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="Кличкадомашньоїтварини" datatype="html">
+        <source> Кличка домашньої тварини</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pet/pet.component.html</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pet/pet-form/pet-form.component.html</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="Виддомашньоїтварини" datatype="html">
+        <source>Вид домашньої тварини</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pet/pet.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pet/pet-form/pet-form.component.html</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="Датанародження" datatype="html">
+        <source>Дата народження</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pet/pet.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pet/pet-form/pet-form.component.html</context>
+          <context context-type="linenumber">35</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="Вік" datatype="html">
+        <source>Вік</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pet/pet.component.html</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="Редагувати" datatype="html">
+        <source>Редагувати</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pet/pet.component.html</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="Додатимедичнийзапис" datatype="html">
+        <source>
+          Додати медичний запис
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pet/pet.component.html</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="Видалити" datatype="html">
+        <source>Видалити</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pet/pet.component.html</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="Медичнакарта" datatype="html">
+        <source>Медична карта</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pet/pet.component.html</context>
+          <context context-type="linenumber">36</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="Cтворений" datatype="html">
+        <source>Cтворений</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pet/pet.component.html</context>
+          <context context-type="linenumber">49</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="Видалитидокумент" datatype="html">
+        <source>Видалити документ</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pet/pet.component.html</context>
+          <context context-type="linenumber">70</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="Завантажитифото" datatype="html">
+        <source>Завантажити фото</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pet/pet-form/pet-form.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="Кличкадомашньоїтвариниобовязкова" datatype="html">
+        <source>
+          Кличка домашньої тварини обов&apos;язкова
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pet/pet-form/pet-form.component.html</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="Виддомашньоїтвариниобовязковий" datatype="html">
+        <source>
+          Вид домашньої тварини обов&apos;язковий
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pet/pet-form/pet-form.component.html</context>
+          <context context-type="linenumber">30</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="Датанародженняобовязкова" datatype="html">
+        <source>
+          Дата народження обов&apos;язкова
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pet/pet-form/pet-form.component.html</context>
+          <context context-type="linenumber">37</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="Дляотриманняінформації" datatype="html">
+        <source>Для отримання інформації відправте ідентифікатор тварини через сматр-девайс</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pet/control/control.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="loginAction" datatype="html">
+        <source>Увійти</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/login/login.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="email" datatype="html">
+        <source>Електронна пошта:</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/login/login.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/register/register.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="password" datatype="html">
+        <source>Пароль:</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/login/login.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/register/register.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="loginError" datatype="html">
+        <source>
+          Невірно введений електронна пошта або пароль
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/login/login.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="login" datatype="html">
+        <source>Увійти</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/login/login.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/register/register.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="noAccount" datatype="html">
+        <source>Відсутній аккаунт?</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/login/login.component.html</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="registerAction" datatype="html">
+        <source>Зареєструватися</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/login/login.component.html</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/register/register.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="register" datatype="html">
+        <source>Регістрація</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/register/register.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

@@ -1,6 +1,6 @@
 <div class="modal-header">
-  <h4 class="modal-title pull-left" *ngIf="!medicalOperation">Створення медичного запису</h4>
-  <h4 class="modal-title pull-left" *ngIf="medicalOperation">Редагування медичного запису</h4>
+  <h4 class="modal-title pull-left" *ngIf="!medicalOperation">{{ 'Створення медичного запису' | translate }}</h4>
+  <h4 class="modal-title pull-left" *ngIf="medicalOperation">{{ 'Редагування медичного запису' | translate }}</h4>
   <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
     <span aria-hidden="true">&times;</span>
   </button>
@@ -8,21 +8,18 @@
 <div class="modal-body">
   <form [formGroup]="medOpForm">
     <div class="form-group">
-      <label for="petName">Медичний запис</label>
+      <label for="petName">{{ 'Медичний запис' | translate }}</label>
       <input type="text" class="form-control" id="petName" required formControlName="name">
       <div class="danger" *ngIf="formSubmitted && medOpForm.controls.name.errors?.required">
-        Медичний запис обов'язковий
+        {{ 'Медичний запис обовязковий' | translate }}
       </div>
     </div>
     <div class="form-group">
-      <label for="petDate">Дійсний до</label>
-      <input type="date" class="form-control" id="petDate" required formControlName="date">
-      <div class="danger" *ngIf="formSubmitted && medOpForm.controls.date.errors?.required">
-        Срок дійсності обов'язковий
-      </div>
+      <label for="petDate">{{ 'Дійсний до' | translate }}</label>
+      <input type="date" class="form-control" id="petDate" formControlName="date">
     </div>
     <div class="form-group" *ngIf="existedFiles.length">
-      <p>Iснуючі документи</p>
+      <p>{{ 'Iснуючі документи' | translate }}</p>
       <hr/>
       <div class="single-file file-full d-flex" *ngFor="let file of existedFiles; let i = index">
         <div class="d-flex">
@@ -52,7 +49,7 @@
     </div>
     <div class="form-group text-center">
       <label for="fileUpload" class="mb-0 btn btn-secondary file-label">
-        Додати документ
+        <ng-container> {{ 'Додати документ' | translate }}</ng-container>
         <input id="fileUpload" type="file" [multiple]="true" class="btn" name="image" (change)="saveFile($event.target.files)" />
       </label>
     </div>
@@ -60,7 +57,7 @@
 </div>
 <div class="modal-footer">
   <button type="button" class="btn btn-primary" (click)="submitForm()">
-    Зберегти
+    {{ 'Зберегти' | translate }}
   </button>
-  <button type="button" class="btn btn-outline-secondary" (click)="modalRef.hide()">Відмінити</button>
+  <button type="button" class="btn btn-outline-secondary" (click)="modalRef.hide()">{{ 'Відмінити' | translate }}</button>
 </div>

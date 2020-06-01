@@ -1,23 +1,27 @@
 <div class="d-flex flex-column align-items-center justify-content-center mt-5">
   <div class="login">
-    <h3>Увійти</h3>
+    <h3>{{ 'Увійти' | translate }}</h3>
     <div>
       <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-        <label for="login">Електронна пошта:</label>
-        <input type="text" class="form-control" placeholder="Введіть електронну пошту" required formControlName="login">
-        <label for="password">Пароль:</label>
-        <input type="password" class="form-control" placeholder="Введіть пароль" required formControlName="password">
+        <label for="login"> {{ 'Електронна пошта' | translate }}:</label>
+        <input type="text" class="form-control" required formControlName="login">
+        <label for="password">{{ 'Пароль' | translate }}:</label>
+        <input type="password" class="form-control" required formControlName="password">
         <div class="danger" *ngIf="error">
-          Невірно введений електронна пошта або пароль
+          {{ 'Невірно введений електронна пошта або пароль' | translate }}
         </div>
         <div class="button">
-          <button type="button" class="btn btn-primary" type="submit" [disabled]="!loginForm.valid">Увійти</button>
+          <button type="button" class="btn btn-primary" type="submit" [disabled]="!loginForm.valid">
+            {{ 'Увійти' | translate }}
+          </button>
         </div>
       </form>
     </div>
   </div>
   <div class="register mt-3">
-    Відсутній аккаунт? 
-    <button type="button" class="btn btn-primary ml-2" routerLink="/user/register">Зареєструватися</button>
+    <ng-container> {{ 'Відсутній аккаунт' | translate }}</ng-container>
+    <button type="button" class="btn btn-primary ml-2" routerLink="/user/register">
+      {{ 'Зареєструватися' | translate }}
+    </button>
   </div>
 </div>

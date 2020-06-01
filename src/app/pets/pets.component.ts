@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
+import { TranslateService } from '@ngx-translate/core';
+
 import { Pet } from '../models/pet';
 import { PetsService, AuthService } from '../services';
 
@@ -13,9 +15,10 @@ export class PetsComponent implements OnInit {
   pets: Pet[];
 
   constructor(
-    private petService: PetsService, 
+    private petService: PetsService,
     private router: Router,
-    public authService: AuthService) { }
+    public authService: AuthService,
+    public translate: TranslateService) { }
 
   ngOnInit(): void {
     if (this.authService.IsController) {

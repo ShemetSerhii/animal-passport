@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 
+import { TranslateService } from '@ngx-translate/core';
+
 import { AuthService } from 'src/app/services';
 import { UserRegister, Role } from 'src/app/models';
 
@@ -20,7 +22,7 @@ export class RegisterComponent implements OnInit {
 
   roles: Role[];
 
-  constructor(public authService: AuthService) { }
+  constructor(public authService: AuthService, public translate: TranslateService) { }
 
   ngOnInit(): void {
     this.authService.fetchRoles().subscribe((roles: Role[]) => {
